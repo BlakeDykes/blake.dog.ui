@@ -1,0 +1,38 @@
+.text {
+  margin: 0;
+  font-family: var(--font-family-body);
+  line-height: var(--font-line-height-normal);
+  color: var(--color-fg);
+
+  &[data-size="xs"] {
+    font-size: var(--font-size-xs);
+  }
+
+  &[data-size="sm"] {
+    font-size: var(--font-size-sm);
+  }
+
+  &[data-size="md"] {
+    font-size: var(--font-size-md);
+  }
+
+  &[data-size="lg"] {
+    font-size: var(--font-size-lg);
+  }
+
+  &[data-weight="regular"] {
+    font-weight: var(--font-weight-regular);
+  }
+
+  &[data-weight="medium"] {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &[data-weight="bold"] {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &[data-muted] {
+    color: var(--color-fg-muted);
+  }
+}

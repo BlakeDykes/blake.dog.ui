@@ -1,0 +1,32 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import {
+  ColorTokens,
+  SpaceTokens,
+  TypeTokens,
+  RadiusTokens,
+} from "./TokenGallery";
+
+<Meta title="Tokens" />
+
+# Design tokens
+
+Semantic custom properties generated from `tokens/*.json` by Style Dictionary.
+Components only ever use this layer (or their own component tokens) — never the
+numeric primitive scales. Flip the **Theme** toolbar control to see the
+`[data-theme="dark"]` overrides apply.
+
+## Color
+
+<ColorTokens />
+
+## Space
+
+<SpaceTokens />
+
+## Type scale
+
+<TypeTokens />
+
+## Radius
+
+<RadiusTokens />

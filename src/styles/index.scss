@@ -1,0 +1,4 @@
+// Public stylesheet entry. Bundled (together with all component module SCSS)
+// into dist/style.css. Ships the generated custom properties: :root for light,
+// [data-theme="dark"] overrides for dark.
+@forward "tokens";

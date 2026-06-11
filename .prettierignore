@@ -1,0 +1,6 @@
+dist/
+storybook-static/
+pnpm-lock.yaml
+src/styles/_tokens.scss
+src/styles/_tokens-map.scss
+*.tgz

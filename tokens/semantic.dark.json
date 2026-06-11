@@ -1,0 +1,18 @@
+{
+  "color": {
+    "bg": { "$value": "{color.gray.950}" },
+    "bg-subtle": { "$value": "{color.gray.900}" },
+    "bg-elevated": { "$value": "{color.gray.800}" },
+    "fg": { "$value": "{color.gray.50}" },
+    "fg-muted": { "$value": "{color.gray.400}" },
+    "fg-on-accent": { "$value": "{color.gray.950}" },
+    "accent": { "$value": "{color.blue.400}" },
+    "accent-hover": { "$value": "{color.blue.300}" },
+    "accent-active": { "$value": "{color.blue.200}" },
+    "border": { "$value": "{color.gray.700}" },
+    "border-strong": { "$value": "{color.gray.600}" },
+    "danger": { "$value": "{color.red.400}" },
+    "danger-hover": { "$value": "{color.red.300}" },
+    "focus-ring": { "$value": "{color.blue.400}" }
+  }
+}

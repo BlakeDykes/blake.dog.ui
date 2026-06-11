@@ -1,0 +1,10 @@
+// Storybook-only canvas styling so the preview pane follows the active theme.
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-family-body);
+}
+
+.docs-story {
+  background-color: var(--color-bg);
+}

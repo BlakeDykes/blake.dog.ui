@@ -1,0 +1,21 @@
+.box {
+  &[data-padding="xs"] {
+    padding: var(--space-xs);
+  }
+
+  &[data-padding="sm"] {
+    padding: var(--space-sm);
+  }
+
+  &[data-padding="md"] {
+    padding: var(--space-md);
+  }
+
+  &[data-padding="lg"] {
+    padding: var(--space-lg);
+  }
+
+  &[data-padding="xl"] {
+    padding: var(--space-xl);
+  }
+}

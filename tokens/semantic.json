@@ -1,0 +1,70 @@
+{
+  "color": {
+    "bg": { "$value": "{color.gray.50}" },
+    "bg-subtle": { "$value": "{color.gray.100}" },
+    "bg-elevated": { "$value": "{color.white}" },
+    "fg": { "$value": "{color.gray.900}" },
+    "fg-muted": { "$value": "{color.gray.600}" },
+    "fg-on-accent": { "$value": "{color.white}" },
+    "accent": { "$value": "{color.blue.600}" },
+    "accent-hover": { "$value": "{color.blue.700}" },
+    "accent-active": { "$value": "{color.blue.800}" },
+    "border": { "$value": "{color.gray.300}" },
+    "border-strong": { "$value": "{color.gray.400}" },
+    "danger": { "$value": "{color.red.600}" },
+    "danger-hover": { "$value": "{color.red.700}" },
+    "focus-ring": { "$value": "{color.blue.500}" }
+  },
+  "space": {
+    "xs": { "$value": "{space.50}" },
+    "sm": { "$value": "{space.100}" },
+    "md": { "$value": "{space.200}" },
+    "lg": { "$value": "{space.300}" },
+    "xl": { "$value": "{space.400}" }
+  },
+  "font": {
+    "family": {
+      "body": { "$value": "{font.family.sans}" },
+      "code": { "$value": "{font.family.mono}" }
+    },
+    "size": {
+      "xs": { "$value": "{font.size.100}" },
+      "sm": { "$value": "{font.size.200}" },
+      "md": { "$value": "{font.size.300}" },
+      "lg": { "$value": "{font.size.400}" },
+      "xl": { "$value": "{font.size.600}" },
+      "2xl": { "$value": "{font.size.700}" },
+      "3xl": { "$value": "{font.size.800}" }
+    },
+    "weight": {
+      "regular": { "$value": "{font.weight.400}" },
+      "medium": { "$value": "{font.weight.500}" },
+      "bold": { "$value": "{font.weight.700}" }
+    },
+    "line-height": {
+      "tight": { "$value": "{font.line-height.100}" },
+      "normal": { "$value": "{font.line-height.200}" },
+      "relaxed": { "$value": "{font.line-height.300}" }
+    }
+  },
+  "radius": {
+    "sm": { "$value": "{radius.100}" },
+    "md": { "$value": "{radius.200}" },
+    "lg": { "$value": "{radius.300}" },
+    "pill": { "$value": "{radius.900}" }
+  },
+  "border-width": {
+    "thin": { "$value": "{border-width.100}" },
+    "thick": { "$value": "{border-width.200}" }
+  },
+  "motion": {
+    "duration-fast": { "$value": "{duration.100}", "$type": "duration" },
+    "duration-normal": { "$value": "{duration.200}", "$type": "duration" },
+    "easing": { "$value": "{easing.standard}" }
+  },
+  "focus": {
+    "$type": "dimension",
+    "ring-width": { "$value": "{border-width.200}" },
+    "ring-offset": { "$value": "{border-width.100}" }
+  }
+}

@@ -1,0 +1,27 @@
+// Hand-authored helpers. Values flow through CSS custom properties so
+// everything stays runtime-themeable — never resolve a themeable token
+// through the Sass map here.
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: var(--focus-ring-width) solid var(--color-focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+}
+
+@mixin button-variant($fg, $bg, $bg-hover: null, $bg-active: null) {
+  color: $fg;
+  background-color: $bg;
+
+  @if $bg-hover {
+    &:hover:not(:disabled) {
+      background-color: $bg-hover;
+    }
+  }
+
+  @if $bg-active {
+    &:active:not(:disabled) {
+      background-color: $bg-active;
+    }
+  }
+}

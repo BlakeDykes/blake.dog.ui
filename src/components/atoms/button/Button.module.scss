@@ -1,0 +1,76 @@
+@use "styles/mixins" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-gap);
+  border: var(--border-width-thin) solid transparent;
+  border-radius: var(--button-radius);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-line-height-tight);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-easing),
+    border-color var(--motion-duration-fast) var(--motion-easing),
+    color var(--motion-duration-fast) var(--motion-easing);
+
+  @include focus-ring;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &[data-size="sm"] {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--font-size-sm);
+  }
+
+  &[data-size="md"] {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-md);
+  }
+
+  &[data-size="lg"] {
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--font-size-lg);
+  }
+
+  &[data-variant="solid"] {
+    @include button-variant(
+      var(--button-fg-solid),
+      var(--button-bg-solid),
+      var(--button-bg-solid-hover),
+      var(--button-bg-solid-active)
+    );
+  }
+
+  &[data-variant="outline"] {
+    @include button-variant(
+      var(--button-fg-outline),
+      transparent,
+      var(--button-bg-ghost-hover)
+    );
+
+    border-color: var(--button-border-outline);
+  }
+
+  &[data-variant="ghost"] {
+    @include button-variant(
+      var(--button-fg-ghost),
+      transparent,
+      var(--button-bg-ghost-hover)
+    );
+  }
+
+  &[data-variant="danger"] {
+    @include button-variant(
+      var(--button-fg-danger),
+      var(--button-bg-danger),
+      var(--button-bg-danger-hover)
+    );
+  }
+}

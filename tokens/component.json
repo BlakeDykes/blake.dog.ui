@@ -1,0 +1,26 @@
+{
+  "button": {
+    "bg": {
+      "$type": "color",
+      "solid": { "$value": "{color.accent}" },
+      "solid-hover": { "$value": "{color.accent-hover}" },
+      "solid-active": { "$value": "{color.accent-active}" },
+      "ghost-hover": { "$value": "{color.bg-subtle}" },
+      "danger": { "$value": "{color.danger}" },
+      "danger-hover": { "$value": "{color.danger-hover}" }
+    },
+    "fg": {
+      "$type": "color",
+      "solid": { "$value": "{color.fg-on-accent}" },
+      "ghost": { "$value": "{color.fg}" },
+      "outline": { "$value": "{color.fg}" },
+      "danger": { "$value": "{color.fg-on-accent}" }
+    },
+    "border": {
+      "$type": "color",
+      "outline": { "$value": "{color.border-strong}" }
+    },
+    "radius": { "$value": "{radius.md}", "$type": "dimension" },
+    "gap": { "$value": "{space.xs}", "$type": "dimension" }
+  }
+}

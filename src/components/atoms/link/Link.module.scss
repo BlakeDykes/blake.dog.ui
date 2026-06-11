@@ -1,0 +1,30 @@
+@use "styles/mixins" as *;
+
+.link {
+  font-family: var(--font-family-body);
+  color: var(--color-accent);
+  border-radius: var(--radius-sm);
+  transition: color var(--motion-duration-fast) var(--motion-easing);
+
+  @include focus-ring;
+
+  &:hover {
+    color: var(--color-accent-hover);
+  }
+
+  &:active {
+    color: var(--color-accent-active);
+  }
+
+  &[data-underline="always"] {
+    text-decoration: underline;
+  }
+
+  &[data-underline="hover"] {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
