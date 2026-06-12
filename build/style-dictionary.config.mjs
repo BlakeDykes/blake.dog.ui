@@ -22,8 +22,8 @@ const BUILD_PATH = "src/styles/";
 // primitive -> nothing.
 // ---------------------------------------------------------------------------
 const TIER_FILES = {
-  primitive: ["primitive.json", "kh/primitive.kh.json"],
-  semantic: ["semantic.json", "semantic.dark.json", "kh/semantic.kh.json"],
+  primitive: ["primitive.json", "primitive.kh.json"],
+  semantic: ["semantic.json", "semantic.dark.json", "semantic.kh.json"],
   component: ["component.json"],
 };
 const ALLOWED_REFS = {
@@ -179,15 +179,15 @@ await rm(darkTmpFile);
 // --- kh brand
 // --- TODO: This should be applied by consumers. Only here for testing
 //------------------
-const BRAND_TMP = "_tokens-kh.tmp.scss"
+const BRAND_TMP = "_tokens-kh.tmp.scss";
 const kh = new StyleDictionary({
   log: {
-    verbosity: logVerbosityLevels.verbose
+    verbosity: logVerbosityLevels.verbose,
   },
   source: [
     `${TOKENS_DIR}/primitive.json`,
-    `${TOKENS_DIR}/kh/primitive.kh.json`,
-    `${TOKENS_DIR}/kh/semantic.kh.json`,
+    `${TOKENS_DIR}/primitive.kh.json`,
+    `${TOKENS_DIR}/semantic.kh.json`,
   ],
   platforms: {
     css: {
@@ -198,11 +198,11 @@ const kh = new StyleDictionary({
           destination: BRAND_TMP,
           format: "css/variables",
           filter: (token) => token.filePath.endsWith(".kh.json"),
-          options: { selector: '[data-brand="kh"]', outputReferences: false }
-        }
-      ]
-    }
-  }
+          options: { selector: '[data-brand="kh"]', outputReferences: false },
+        },
+      ],
+    },
+  },
 });
 await kh.buildAllPlatforms();
 
