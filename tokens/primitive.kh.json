@@ -1,8 +1,8 @@
 {
   "color": {
     "kh": {
-      "black": { "$value": "#101010"},
-      "white": { "$value": "#F3F3F3"},
+      "black": { "$value": "#101010" },
+      "white": { "$value": "#F3F3F3" },
       "green": {
         "50": { "$value": "#f5fff6" },
         "100": { "$value": "#d8fddb" },

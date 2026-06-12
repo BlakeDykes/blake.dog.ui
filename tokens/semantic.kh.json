@@ -2,17 +2,17 @@
   "kh": {
     "color": {
       "primary": { "$value": "{color.blue.500}" },
-      "border": {"$value": "{color.blue.500}" },
+      "border": { "$value": "{color.blue.500}" },
       "surface": {
-        "panel": { 
+        "panel": {
           "primary": {
             "$value": "{color.kh.black}"
           },
           "secondary": {
             "$value": "{color.kh.navy.500}"
           }
-         },
-         "dialogue": {
+        },
+        "dialogue": {
           "primary": {
             "$value": "{color.kh.yellow.400}"
           },
@@ -22,12 +22,12 @@
           "bg": {
             "$value": "{color.gray.300}"
           }
-         }
+        }
       },
       "stats": {
-        "hp": {"$value": "{color.kh.green.500}"},
-        "mp": {"$value": "{color.blue.500}"},
-        "ap": {"$value": "{color.kh.yellow.500}"}
+        "hp": { "$value": "{color.kh.green.500}" },
+        "mp": { "$value": "{color.blue.500}" },
+        "ap": { "$value": "{color.kh.yellow.500}" }
       }
     },
     "gradient": {
@@ -40,7 +40,7 @@
           "$value": "linear-gradient({color.kh.black}, {color.blue.500})"
         },
         "orange": {
-          "$value":"linear-gradient({color.kh.black}, {color.kh.orange.500})"
+          "$value": "linear-gradient({color.kh.black}, {color.kh.orange.500})"
         },
         "pink": {
           "$value": "linear-gradient({color.kh.black}, {color.kh.pink.500})"
@@ -50,7 +50,7 @@
         }
       }
     },
-    "font" : {
+    "font": {
       "family": {
         "body": {
           "$value": "{font.family.rounded-sans}"

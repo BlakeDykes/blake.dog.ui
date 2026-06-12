@@ -52,9 +52,9 @@ export const BRAND_COLORS = [
   "--kh-color-stats-hp",
   "--kh-color-stats-mp",
   "--kh-color-stats-ap",
-]
+];
 
-export function ColorTokens({ names } : { names: string[]}) {
+export function ColorTokens({ names }: { names: string[] }) {
   return (
     <div style={column}>
       {names.map((name) => (
@@ -75,15 +75,14 @@ export function ColorTokens({ names } : { names: string[]}) {
   );
 }
 
-
 export const BRAND_GRADIENTS = [
   "--kh-gradient-panel",
   "--kh-gradient-button-blue",
   "--kh-gradient-button-orange",
   "--kh-gradient-button-pink",
   "--kh-gradient-button-green",
-]
-export function GradientTokens({ names } : { names : string[] }) {
+];
+export function GradientTokens({ names }: { names: string[] }) {
   return (
     <div style={column}>
       {names.map((name) => {
@@ -97,14 +96,13 @@ export function GradientTokens({ names } : { names : string[] }) {
                 background: `var(${name})`,
               }}
             />
-          <code style={label}>{name}</code>
+            <code style={label}>{name}</code>
           </div>
-        )
-    })}
+        );
+      })}
     </div>
   );
 }
-
 
 const SPACES = [
   "--space-xs",
@@ -144,7 +142,7 @@ export const BRAND_FONT_FAMILIES = [
   "--font-family-wide",
 ];
 
-export function FontFamilyTokens({ names } : { names: string[]}) {
+export function FontFamilyTokens({ names }: { names: string[] }) {
   return (
     <div style={column}>
       {names.map((name) => (
