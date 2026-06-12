@@ -17,17 +17,17 @@
       "950": { "$value": "#030712" }
     },
     "blue": {
-      "50": { "$value": "#eff6ff" },
-      "100": { "$value": "#dbeafe" },
-      "200": { "$value": "#bfdbfe" },
-      "300": { "$value": "#93c5fd" },
-      "400": { "$value": "#60a5fa" },
-      "500": { "$value": "#3b82f6" },
-      "600": { "$value": "#2563eb" },
-      "700": { "$value": "#1d4ed8" },
-      "800": { "$value": "#1e40af" },
-      "900": { "$value": "#1e3a8a" },
-      "950": { "$value": "#172554" }
+      "50": { "$value": "#f4f8ff" },
+      "100": { "$value": "#e1ebff" },
+      "200": { "$value": "#c4d7ff" },
+      "300": { "$value": "#9fbdff" },
+      "400": { "$value": "#759fff" },
+      "500": { "$value": "#527ee7" },
+      "600": { "$value": "#2d59ce" },
+      "700": { "$value": "#173ba8" },
+      "800": { "$value": "#0c287f" },
+      "900": { "$value": "#051859" },
+      "950": { "$value": "#010935" }
     },
     "red": {
       "50": { "$value": "#fef2f2" },
@@ -59,11 +59,8 @@
   "font": {
     "family": {
       "$type": "fontFamily",
-      "sans": {
+      "system": {
         "$value": "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif"
-      },
-      "mono": {
-        "$value": "ui-monospace, 'Cascadia Code', Consolas, 'Liberation Mono', monospace"
       }
     },
     "size": {

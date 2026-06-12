@@ -24,7 +24,7 @@ const column: CSSProperties = {
   backgroundColor: "var(--color-bg)",
 };
 
-const SEMANTIC_COLORS = [
+export const SEMANTIC_COLORS = [
   "--color-bg",
   "--color-bg-subtle",
   "--color-bg-elevated",
@@ -41,10 +41,23 @@ const SEMANTIC_COLORS = [
   "--color-focus-ring",
 ];
 
-export function ColorTokens() {
+export const BRAND_COLORS = [
+  "--kh-color-primary",
+  "--kh-color-border",
+  "--kh-color-surface-panel-primary",
+  "--kh-color-surface-panel-secondary",
+  "--kh-color-surface-dialogue-primary",
+  "--kh-color-surface-dialogue-fg",
+  "--kh-color-surface-dialogue-bg",
+  "--kh-color-stats-hp",
+  "--kh-color-stats-mp",
+  "--kh-color-stats-ap",
+]
+
+export function ColorTokens({ names } : { names: string[]}) {
   return (
     <div style={column}>
-      {SEMANTIC_COLORS.map((name) => (
+      {names.map((name) => (
         <div key={name} style={row}>
           <div
             style={{
@@ -61,6 +74,37 @@ export function ColorTokens() {
     </div>
   );
 }
+
+
+export const BRAND_GRADIENTS = [
+  "--kh-gradient-panel",
+  "--kh-gradient-button-blue",
+  "--kh-gradient-button-orange",
+  "--kh-gradient-button-pink",
+  "--kh-gradient-button-green",
+]
+export function GradientTokens({ names } : { names : string[] }) {
+  return (
+    <div style={column}>
+      {names.map((name) => {
+        return (
+          <div style={row}>
+            <div
+              style={{
+                width: "8rem",
+                height: "var(--space-xl)",
+                borderRadius: "var(--radius-pill)",
+                background: `var(${name})`,
+              }}
+            />
+          <code style={label}>{name}</code>
+          </div>
+        )
+    })}
+    </div>
+  );
+}
+
 
 const SPACES = [
   "--space-xs",
@@ -84,6 +128,36 @@ export function SpaceTokens() {
               }}
             />
           </div>
+          <code style={label}>{name}</code>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Font registers — render sample text in each family
+export const BRAND_FONT_FAMILIES = [
+  "--font-family-body",
+  "--font-family-hud-display",
+  "--font-family-hud-title",
+  "--font-family-dialogue",
+  "--font-family-wide",
+];
+
+export function FontFamilyTokens({ names } : { names: string[]}) {
+  return (
+    <div style={column}>
+      {names.map((name) => (
+        <div key={name} style={row}>
+          <span
+            style={{
+              fontFamily: `var(${name})`,
+              fontSize: "var(--font-size-xl)",
+              color: "var(--color-fg)",
+            }}
+          >
+            The quick brown fox jumps over the lazy dog.
+          </span>
           <code style={label}>{name}</code>
         </div>
       ))}

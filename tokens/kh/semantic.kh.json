@@ -1,0 +1,71 @@
+{
+  "kh": {
+    "color": {
+      "primary": { "$value": "{color.blue.500}" },
+      "border": {"$value": "{color.blue.500}" },
+      "surface": {
+        "panel": { 
+          "primary": {
+            "$value": "{color.kh.black}"
+          },
+          "secondary": {
+            "$value": "{color.kh.navy.500}"
+          }
+         },
+         "dialogue": {
+          "primary": {
+            "$value": "{color.kh.yellow.400}"
+          },
+          "fg": {
+            "$value": "{color.kh.yellow.200}"
+          },
+          "bg": {
+            "$value": "{color.gray.300}"
+          }
+         }
+      },
+      "stats": {
+        "hp": {"$value": "{color.kh.green.500}"},
+        "mp": {"$value": "{color.blue.500}"},
+        "ap": {"$value": "{color.kh.yellow.500}"}
+      }
+    },
+    "gradient": {
+      "type": "other",
+      "panel": {
+        "$value": "linear-gradient({color.kh.navy.500}, {color.kh.black})"
+      },
+      "button": {
+        "blue": {
+          "$value": "linear-gradient({color.kh.black}, {color.blue.500})"
+        },
+        "orange": {
+          "$value":"linear-gradient({color.kh.black}, {color.kh.orange.500})"
+        },
+        "pink": {
+          "$value": "linear-gradient({color.kh.black}, {color.kh.pink.500})"
+        },
+        "green": {
+          "$value": "linear-gradient({color.kh.black}, {color.kh.green.500})"
+        }
+      }
+    },
+    "font" : {
+      "family": {
+        "body": {
+          "$value": "{font.family.rounded-sans}"
+        },
+        "hud": {
+          "display": { "$value": "{font.family.chakra}" },
+          "title": { "$value": "{font.family.stalinist}" }
+        },
+        "dialogue": {
+          "$value": "{font.family.comic}"
+        },
+        "wide": {
+          "$value": "{font.family.jost}"
+        }
+      }
+    }
+  }
+}

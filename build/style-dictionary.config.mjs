@@ -9,6 +9,7 @@
 import StyleDictionary from "style-dictionary";
 import { readFile, writeFile, rm } from "node:fs/promises";
 import path from "node:path";
+import { logVerbosityLevels } from "style-dictionary/enums";
 
 const TOKENS_DIR = "tokens";
 const BUILD_PATH = "src/styles/";
@@ -21,8 +22,8 @@ const BUILD_PATH = "src/styles/";
 // primitive -> nothing.
 // ---------------------------------------------------------------------------
 const TIER_FILES = {
-  primitive: ["primitive.json"],
-  semantic: ["semantic.json", "semantic.dark.json"],
+  primitive: ["primitive.json", "kh/primitive.kh.json"],
+  semantic: ["semantic.json", "semantic.dark.json", "kh/semantic.kh.json"],
   component: ["component.json"],
 };
 const ALLOWED_REFS = {
@@ -174,6 +175,44 @@ const darkBody = darkBlock.replace(/^\/\*\*[\s\S]*?\*\/\s*/, "");
 await writeFile(tokensFile, `${rootBlock}\n${darkBody}`);
 await rm(darkTmpFile);
 
+//------------------
+// --- kh brand
+// --- TODO: This should be applied by consumers. Only here for testing
+//------------------
+const BRAND_TMP = "_tokens-kh.tmp.scss"
+const kh = new StyleDictionary({
+  log: {
+    verbosity: logVerbosityLevels.verbose
+  },
+  source: [
+    `${TOKENS_DIR}/primitive.json`,
+    `${TOKENS_DIR}/kh/primitive.kh.json`,
+    `${TOKENS_DIR}/kh/semantic.kh.json`,
+  ],
+  platforms: {
+    css: {
+      transforms: ["name/kebab"],
+      buildPath: BUILD_PATH,
+      files: [
+        {
+          destination: BRAND_TMP,
+          format: "css/variables",
+          filter: (token) => token.filePath.endsWith(".kh.json"),
+          options: { selector: '[data-brand="kh"]', outputReferences: false }
+        }
+      ]
+    }
+  }
+});
+await kh.buildAllPlatforms();
+
+const brandTmpFile = path.join(BUILD_PATH, BRAND_TMP);
+const brandBlock = await readFile(brandTmpFile, "utf-8");
+const brandBody = brandBlock.replace(/^\/\*\*[\s\S]*?\*\/\s*/, "");
+const withDark = await readFile(tokensFile, "utf8");
+await writeFile(tokensFile, `${withDark}\n${brandBody}`);
+await rm(brandTmpFile);
+
 console.log(
-  "Token build complete: _tokens.scss (:root + dark) and _tokens-map.scss"
+  "Token build complete: _tokens.scss (:root + dark + kh brand) and _tokens-map.scss"
 );

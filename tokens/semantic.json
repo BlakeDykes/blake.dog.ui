@@ -1,7 +1,7 @@
 {
   "color": {
-    "bg": { "$value": "{color.gray.50}" },
-    "bg-subtle": { "$value": "{color.gray.100}" },
+    "bg": { "$value": "{color.gray.100}" },
+    "bg-subtle": { "$value": "{color.gray.200}" },
     "bg-elevated": { "$value": "{color.white}" },
     "fg": { "$value": "{color.gray.900}" },
     "fg-muted": { "$value": "{color.gray.600}" },
@@ -24,8 +24,7 @@
   },
   "font": {
     "family": {
-      "body": { "$value": "{font.family.sans}" },
-      "code": { "$value": "{font.family.mono}" }
+      "body": { "$value": "{font.family.system}" }
     },
     "size": {
       "xs": { "$value": "{font.size.100}" },
@@ -61,10 +60,5 @@
     "duration-fast": { "$value": "{duration.100}", "$type": "duration" },
     "duration-normal": { "$value": "{duration.200}", "$type": "duration" },
     "easing": { "$value": "{easing.standard}" }
-  },
-  "focus": {
-    "$type": "dimension",
-    "ring-width": { "$value": "{border-width.200}" },
-    "ring-offset": { "$value": "{border-width.100}" }
   }
 }

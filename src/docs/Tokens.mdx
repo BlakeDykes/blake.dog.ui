@@ -4,6 +4,13 @@ import {
   SpaceTokens,
   TypeTokens,
   RadiusTokens,
+  GradientTokens,
+  FontFamilyTokens,
+
+  SEMANTIC_COLORS,
+  BRAND_COLORS,
+  BRAND_GRADIENTS,
+  BRAND_FONT_FAMILIES
 } from "./TokenGallery";
 
 <Meta title="Tokens" />
@@ -17,11 +24,17 @@ numeric primitive scales. Flip the **Theme** toolbar control to see the
 
 ## Color
 
-<ColorTokens />
+<ColorTokens names={[...SEMANTIC_COLORS, ...BRAND_COLORS]} />
+
+## Gradient
+<GradientTokens names={[...BRAND_GRADIENTS]} />
 
 ## Space
 
 <SpaceTokens />
+
+## Typography
+<FontFamilyTokens names={[...BRAND_FONT_FAMILIES]} />
 
 ## Type scale
 
