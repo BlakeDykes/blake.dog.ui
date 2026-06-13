@@ -214,5 +214,5 @@ await writeFile(tokensFile, `${withDark}\n${brandBody}`);
 await rm(brandTmpFile);
 
 console.log(
-  "Token build complete: _tokens.scss (:root + dark + kh brand) and _tokens-map.scss"
+  "Token build complete: _tokens.scss (:root + dark + kh ) and _tokens-map.scss"
 );

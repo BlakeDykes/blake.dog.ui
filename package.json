@@ -1,12 +1,12 @@
 {
   "name": "@blakedykes/ui",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Brand-neutral React design system: Base UI, DTCG tokens, SCSS modules.",
   "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/blakedykes/blake_dog_ds.git"
+    "url": "https://github.com/blakedykes/blake.dog.ds.git"
   },
   "exports": {
     ".": {
@@ -31,7 +31,9 @@
     "lint:style": "stylelint \"src/**/*.scss\"",
     "format": "prettier --write .",
     "storybook": "pnpm tokens:build && storybook dev -p 6006",
-    "build-storybook": "pnpm tokens:build && storybook build"
+    "build-storybook": "pnpm tokens:build && storybook build",
+    "dev": "pnpm tokens:build && start cmd /k \"storybook dev -p 6006\" && vite build --watch",
+    "prepare": "husky"
   },
   "peerDependencies": {
     "@base-ui/react": "^1.4.1",
@@ -46,6 +48,8 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.7",
     "prettier": "3.8.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",

@@ -22,5 +22,32 @@
     },
     "radius": { "$value": "{radius.md}", "$type": "dimension" },
     "gap": { "$value": "{space.xs}", "$type": "dimension" }
+  },
+  "input": {
+    "bg": { "$value": "{color.bg-elevated}", "$type": "color" },
+    "fg": { "$value": "{color.fg}", "$type": "color" },
+    "placeholder": { "$value": "{color.fg-muted}", "$type": "color" },
+    "border": { "$value": "{color.border}", "$type": "color" },
+    "border-hover": { "$value": "{color.border-strong}", "$type": "color" },
+    "border-focus": { "$value": "{color.accent}", "$type": "color" },
+    "border-invalid": { "$value": "{color.danger}", "$type": "color" },
+    "radius": { "$value": "{radius.md}", "$type": "dimension" },
+    "padding-x": { "$value": "{space.sm}", "$type": "dimension" },
+    "padding-y": { "$value": "{space.xs}", "$type": "dimension" }
+  },
+  "field": {
+    "gap": { "$value": "{space.xs}", "$type": "dimension" },
+    "label": {
+      "fg": { "$value": "{color.fg}", "$type": "color" },
+      "size": { "$value": "{font.size.sm}", "$type": "dimension" }
+    },
+    "description": {
+      "fg": { "$value": "{color.fg-muted}", "$type": "color" },
+      "size": { "$value": "{font.size.xs}", "$type": "dimension" }
+    },
+    "error": {
+      "fg": { "$value": "{color.danger}", "$type": "color" },
+      "size": { "$value": "{font.size.xs}", "$type": "dimension" }
+    }
   }
 }
