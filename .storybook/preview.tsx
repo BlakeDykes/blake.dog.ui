@@ -10,7 +10,7 @@ const applyTheme = (globals?: { theme?: unknown }) => {
 
 const applyBrand = (globals?: { brand?: unknown }) => {
   const brand = String(globals?.brand ?? "none");
-  if(brand === "none") delete document.documentElement.dataset.brand;
+  if (brand === "none") delete document.documentElement.dataset.brand;
   else document.documentElement.dataset.brand = brand;
 };
 
@@ -29,8 +29,8 @@ const withTheme: Decorator = (Story, context) => {
 
 const channel = addons.getChannel();
 channel.on(SET_GLOBALS, ({ globals }) => {
-  applyTheme(globals)
-  applyBrand(globals)
+  applyTheme(globals);
+  applyBrand(globals);
 });
 
 channel.on(GLOBALS_UPDATED, ({ globals }) => {
@@ -55,9 +55,9 @@ const preview: Preview = {
         title: "Brand",
         icon: "paintbrush",
         items: ["none", "kh"],
-        dynamicTitle: true
-      }
-    }
+        dynamicTitle: true,
+      },
+    },
   },
   initialGlobals: {
     theme: "light",
