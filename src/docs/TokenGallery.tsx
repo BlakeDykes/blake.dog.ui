@@ -88,7 +88,7 @@ export function GradientTokens({ names } : { names : string[] }) {
     <div style={column}>
       {names.map((name) => {
         return (
-          <div style={row}>
+          <div key={name} style={row}>
             <div
               style={{
                 width: "8rem",

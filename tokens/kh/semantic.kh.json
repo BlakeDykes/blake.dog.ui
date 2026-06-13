@@ -31,7 +31,7 @@
       }
     },
     "gradient": {
-      "type": "other",
+      "$type": "other",
       "panel": {
         "$value": "linear-gradient({color.kh.navy.500}, {color.kh.black})"
       },
