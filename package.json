@@ -1,6 +1,6 @@
 {
   "name": "@blakedykes/ui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Brand-neutral React design system: Base UI, DTCG tokens, SCSS modules.",
   "type": "module",
   "license": "MIT",
