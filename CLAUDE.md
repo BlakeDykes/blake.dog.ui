@@ -33,6 +33,33 @@ Hand-authored: `src/styles/_mixins.scss` (focus-ring, button-variant mixins).
 
 Scripts: `pnpm tokens:build` runs the SD config; it also runs as `prebuild`.
 
+## Cascade layers (the precedence seam)
+
+`_tokens.scss` is emitted inside a fixed CSS cascade declared at the top of the file:
+
+```css
+@layer structural, identity, brand, invariants;
+```
+
+Precedence is by **layer order, not selector specificity**. Later layers win; the brand layer overrides the identity layer; the invariants layer (reserved) will cap brand. What each layer holds:
+
+| Layer        | Holds                                                                                                | Selector                       |
+| ------------ | ---------------------------------------------------------------------------------------------------- | ------------------------------ |
+| `structural` | raw primitive scales (`--color-blue-*`, `--space-*`, …), literals                                    | `:root`                        |
+| `identity`   | the **contract** (semantic) + component tokens; `:root` is the **default identity** + the dark remap | `:root`, `[data-theme="dark"]` |
+| `brand`      | `[data-brand]` overrides/extensions of the identity (KH today)                                       | `[data-brand="kh"]`            |
+| `invariants` | reserved — legibility / flash / ethics floors (a later phase)                                        | —                              |
+
+Rules and reserved slots:
+
+- **Components read only the contract names** (`--color-*`, `--button-*`); they never compete on specificity and never read primitives directly (stylelint-enforced).
+- `:root` **is** the default identity. A named identity (e.g. `[data-identity="ps2"]`) would populate the same contract inside `@layer identity`; the `[data-identity]` slot is reserved and **optional**, so existing consumers (no `data-identity`) stay themed.
+- Dark wins over the default identity by **source order within the same layer** (`[data-theme="dark"]` is appended after the `:root` identity block).
+- A brand that overrides a **shared contract token** must supply its own per-theme block within `@layer brand` (e.g. `[data-brand][data-theme="dark"]`), because brand > identity would otherwise bleed a light value into dark. This is solved by layer order, not the old specificity hack.
+- **Consumer boundary:** layered DS declarations lose to **any unlayered** declaration a consumer makes — so a consumer's app-local `--color-*` overrides reliably win (intended).
+
+This layering is **non-breaking**: resolved values for `:root`, `[data-theme="dark"]`, and `[data-brand="kh"]` are identical to the previous specificity-based output.
+
 ## Theming contract
 
 - Dark mode overrides the **semantic layer only**, emitted as the `[data-theme="dark"]` block in `_tokens.scss`.

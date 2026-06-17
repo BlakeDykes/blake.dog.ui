@@ -1,7 +1,19 @@
 /**
  * Token build: tokens/*.json (DTCG) -> src/styles/_tokens.scss + _tokens-map.scss
  *
- * - _tokens.scss      :root custom properties + [data-theme="dark"] overrides (runtime-themeable)
+ * _tokens.scss is emitted inside a fixed CSS cascade:
+ *
+ *   @layer structural, identity, brand, invariants;
+ *
+ * - structural   raw primitive scales (identity-neutral pool)
+ * - identity      the contract population (default identity = :root) + theme remaps
+ * - brand         [data-brand] overrides/extensions of the identity
+ * - invariants    reserved — legibility / flash / ethics floors (a later phase)
+ *
+ * Components read only the contract names resolved by this cascade; precedence is
+ * by layer order, not selector specificity. Values are identical to the previous
+ * specificity-based output — this layering is non-breaking.
+ *
  * - _tokens-map.scss  Sass $tokens map for compile-time math only — never shipped to consumers
  *
  * Run via `pnpm tokens:build` (cwd must be the repo root).
@@ -9,7 +21,6 @@
 import StyleDictionary from "style-dictionary";
 import { readFile, writeFile, rm } from "node:fs/promises";
 import path from "node:path";
-import { logVerbosityLevels } from "style-dictionary/enums";
 
 const TOKENS_DIR = "tokens";
 const BUILD_PATH = "src/styles/";
@@ -100,31 +111,38 @@ async function validateTierDirection() {
 
 await validateTierDirection();
 
+const tokensFile = path.join(BUILD_PATH, "_tokens.scss");
+
+// --- assembly helpers --------------------------------------------------------
+// Each Style Dictionary pass writes a tmp CSS block; we strip its generated
+// header comment, then wrap the block in its cascade layer before concatenating.
+const stripHeader = (s) => s.replace(/^\/\*\*[\s\S]*?\*\/\s*/, "").trimEnd();
+const indent = (s) =>
+  s
+    .split("\n")
+    .map((line) => (line.length ? `  ${line}` : line))
+    .join("\n");
+const layerBlock = (name, body) => `@layer ${name} {\n${indent(body)}\n}\n`;
+
+// Run a CSS pass to a tmp file, return its header-stripped body, and clean up.
+async function emitCss(sd, tmpName) {
+  await sd.buildAllPlatforms();
+  const tmpPath = path.join(BUILD_PATH, tmpName);
+  const body = stripHeader(await readFile(tmpPath, "utf8"));
+  await rm(tmpPath);
+  return body;
+}
+
 // ---------------------------------------------------------------------------
-// Build 1: light theme (:root) custom properties + Sass map.
-// outputReferences keeps the alias chain visible at runtime
-// (--button-bg-solid: var(--color-accent)), which is what lets the dark
-// semantic overrides cascade into component tokens.
+// Sass map (_tokens-map.scss) — full token set, build-time DX only. Unchanged.
 // ---------------------------------------------------------------------------
-// Note: source entries are globs — always forward slashes, even on Windows.
-const light = new StyleDictionary({
+const sassMap = new StyleDictionary({
   source: [
     `${TOKENS_DIR}/primitive.json`,
     `${TOKENS_DIR}/semantic.json`,
     `${TOKENS_DIR}/component.json`,
   ],
   platforms: {
-    css: {
-      transforms: ["name/kebab"],
-      buildPath: BUILD_PATH,
-      files: [
-        {
-          destination: "_tokens.scss",
-          format: "css/variables",
-          options: { outputReferences: true },
-        },
-      ],
-    },
     scss: {
       transforms: ["name/kebab"],
       buildPath: BUILD_PATH,
@@ -138,15 +156,68 @@ const light = new StyleDictionary({
     },
   },
 });
-await light.buildAllPlatforms();
+await sassMap.buildAllPlatforms();
 
 // ---------------------------------------------------------------------------
-// Build 2: dark theme — semantic layer only, re-pointed at primitives,
-// emitted as a [data-theme="dark"] block and appended to _tokens.scss.
-// References are resolved to literals here because the primitives they point
-// at live in the other build's output.
+// @layer structural — raw primitive scales (literals, no references).
 // ---------------------------------------------------------------------------
-const DARK_TMP = "_tokens-dark.tmp.scss";
+// Note: source entries are globs — always forward slashes, even on Windows.
+const structural = new StyleDictionary({
+  source: [`${TOKENS_DIR}/primitive.json`],
+  platforms: {
+    css: {
+      transforms: ["name/kebab"],
+      buildPath: BUILD_PATH,
+      files: [
+        {
+          destination: "_tokens-structural.tmp.scss",
+          format: "css/variables",
+          options: { outputReferences: false },
+        },
+      ],
+    },
+  },
+});
+const structuralBody = await emitCss(structural, "_tokens-structural.tmp.scss");
+
+// ---------------------------------------------------------------------------
+// @layer identity — the contract population (semantic + component), default
+// identity on :root. outputReferences keeps the alias chain visible at runtime
+// (--color-accent: var(--color-blue-600); --button-bg-solid: var(--color-accent)),
+// which is what lets brand + dark overrides cascade into component tokens.
+// primitive.json stays in `source` only so those references resolve.
+// ---------------------------------------------------------------------------
+const identity = new StyleDictionary({
+  source: [
+    `${TOKENS_DIR}/primitive.json`,
+    `${TOKENS_DIR}/semantic.json`,
+    `${TOKENS_DIR}/component.json`,
+  ],
+  platforms: {
+    css: {
+      transforms: ["name/kebab"],
+      buildPath: BUILD_PATH,
+      files: [
+        {
+          destination: "_tokens-identity.tmp.scss",
+          format: "css/variables",
+          filter: (token) =>
+            token.filePath.endsWith("semantic.json") ||
+            token.filePath.endsWith("component.json"),
+          options: { outputReferences: true },
+        },
+      ],
+    },
+  },
+});
+const identityBody = await emitCss(identity, "_tokens-identity.tmp.scss");
+
+// ---------------------------------------------------------------------------
+// @layer identity (dark remap) — semantic layer only, re-pointed at primitives,
+// emitted as a [data-theme="dark"] block. References resolve to literals here
+// because the primitives they point at live in the structural block. Dark wins
+// over the default identity by source order within the same layer.
+// ---------------------------------------------------------------------------
 const dark = new StyleDictionary({
   source: [`${TOKENS_DIR}/primitive.json`, `${TOKENS_DIR}/semantic.dark.json`],
   platforms: {
@@ -155,7 +226,7 @@ const dark = new StyleDictionary({
       buildPath: BUILD_PATH,
       files: [
         {
-          destination: DARK_TMP,
+          destination: "_tokens-dark.tmp.scss",
           format: "css/variables",
           filter: (token) => token.filePath.endsWith("semantic.dark.json"),
           options: { selector: '[data-theme="dark"]', outputReferences: false },
@@ -164,26 +235,17 @@ const dark = new StyleDictionary({
     },
   },
 });
-await dark.buildAllPlatforms();
+const darkBody = await emitCss(dark, "_tokens-dark.tmp.scss");
 
-const tokensFile = path.join(BUILD_PATH, "_tokens.scss");
-const darkTmpFile = path.join(BUILD_PATH, DARK_TMP);
-const rootBlock = await readFile(tokensFile, "utf8");
-const darkBlock = await readFile(darkTmpFile, "utf8");
-// Drop the duplicate file-header comment from the dark output before appending.
-const darkBody = darkBlock.replace(/^\/\*\*[\s\S]*?\*\/\s*/, "");
-await writeFile(tokensFile, `${rootBlock}\n${darkBody}`);
-await rm(darkTmpFile);
-
-//------------------
-// --- kh brand
-// --- TODO: This should be applied by consumers. Only here for testing
-//------------------
-const BRAND_TMP = "_tokens-kh.tmp.scss";
+// ---------------------------------------------------------------------------
+// @layer brand — [data-brand] overrides/extensions of the identity. Wins over
+// identity by layer order. KH currently uses a parallel --kh-* namespace.
+// TODO: brand population should ultimately be applied by consumers; KH is here
+// for testing. A brand that overrides a *shared* contract token must supply its
+// own per-theme block (e.g. [data-brand][data-theme="dark"]) within this layer,
+// since brand > identity would otherwise bleed a light value into dark.
+// ---------------------------------------------------------------------------
 const kh = new StyleDictionary({
-  log: {
-    verbosity: logVerbosityLevels.verbose,
-  },
   source: [
     `${TOKENS_DIR}/primitive.json`,
     `${TOKENS_DIR}/primitive.kh.json`,
@@ -195,7 +257,7 @@ const kh = new StyleDictionary({
       buildPath: BUILD_PATH,
       files: [
         {
-          destination: BRAND_TMP,
+          destination: "_tokens-kh.tmp.scss",
           format: "css/variables",
           filter: (token) => token.filePath.endsWith(".kh.json"),
           options: { selector: '[data-brand="kh"]', outputReferences: false },
@@ -204,15 +266,32 @@ const kh = new StyleDictionary({
     },
   },
 });
-await kh.buildAllPlatforms();
+const khBody = await emitCss(kh, "_tokens-kh.tmp.scss");
 
-const brandTmpFile = path.join(BUILD_PATH, BRAND_TMP);
-const brandBlock = await readFile(brandTmpFile, "utf-8");
-const brandBody = brandBlock.replace(/^\/\*\*[\s\S]*?\*\/\s*/, "");
-const withDark = await readFile(tokensFile, "utf8");
-await writeFile(tokensFile, `${withDark}\n${brandBody}`);
-await rm(brandTmpFile);
+// ---------------------------------------------------------------------------
+// Assemble the layered stylesheet.
+// ---------------------------------------------------------------------------
+const header =
+  "/**\n" +
+  " * Do not edit directly — generated by build/style-dictionary.config.mjs.\n" +
+  " * Cascade: @layer structural < identity < brand < invariants.\n" +
+  " */\n";
+
+const out =
+  header +
+  "\n@layer structural, identity, brand, invariants;\n\n" +
+  layerBlock("structural", structuralBody) +
+  "\n" +
+  layerBlock("identity", `${identityBody}\n\n${darkBody}`) +
+  "\n" +
+  layerBlock("brand", khBody) +
+  "\n" +
+  "@layer invariants {\n" +
+  "  /* legibility / flash / ethics floors — reserved for a later phase */\n" +
+  "}\n";
+
+await writeFile(tokensFile, out);
 
 console.log(
-  "Token build complete: _tokens.scss (:root + dark + kh ) and _tokens-map.scss"
+  "Token build complete: _tokens.scss (@layer structural + identity[+dark] + brand=kh + invariants) and _tokens-map.scss"
 );
