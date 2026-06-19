@@ -1,6 +1,6 @@
 {
   "name": "@blakedykes/nes",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "NES (8-bit) console identity: palette/tile-grid/bitmap tokens + identity-aware component skins over @blakedykes/core.",
   "type": "module",
   "license": "MIT",

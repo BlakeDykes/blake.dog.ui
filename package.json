@@ -11,7 +11,8 @@
     "storybook": "pnpm --filter @blakedykes/storybook storybook",
     "build-storybook": "pnpm --filter @blakedykes/storybook build-storybook",
     "format": "prettier --write .",
-    "changeset": "changeset"
+    "changeset": "changeset",
+    "prepare": "husky"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
@@ -23,6 +24,8 @@
   "devDependencies": {
     "@base-ui/react": "^1.5.0",
     "@changesets/cli": "^2.27.10",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.7",
     "@storybook/addon-docs": "^9.1.20",
     "@storybook/react-vite": "^9.1.20",
     "@types/node": "^22.19.21",

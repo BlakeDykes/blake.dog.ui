@@ -1,6 +1,6 @@
 {
   "name": "@blakedykes/core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Headless game-UI core: the token contract, structural + invariants layers, and behavior-only components that identity packages skin.",
   "type": "module",
   "license": "MIT",
