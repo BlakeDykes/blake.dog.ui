@@ -22,12 +22,10 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm tokens:build
-
       - run: pnpm lint:style
 
-      - run: pnpm typecheck
-
+      # `pnpm -r build` builds every package in dependency order
+      # (core -> nes/ps2 -> storybook); each runs its own tokens build +
+      # tsc --noEmit + vite, so this also covers token generation,
+      # typechecking, and the Storybook proof app.
       - run: pnpm build
-
-      - run: pnpm build-storybook

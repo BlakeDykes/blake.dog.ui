@@ -1,8 +1,8 @@
 name: Release
 
 # Publish to GitHub Packages on a version tag:
-#   pnpm version <patch|minor|major>
-#   git push --follow-tags
+#   pnpm changeset version   (bumps + writes changelogs)
+#   git commit + tag + push --follow-tags
 on:
   push:
     tags: ["v*"]
@@ -32,6 +32,9 @@ jobs:
 
       - run: pnpm build
 
-      - run: pnpm publish --no-git-checks
+      # Publishes every workspace package whose current version is not yet on
+      # the registry (skips the frozen @blakedykes/ui and the private storybook
+      # app), and rewrites workspace:* deps to real versions on the way out.
+      - run: pnpm changeset publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
