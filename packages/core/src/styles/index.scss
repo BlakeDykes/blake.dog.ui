@@ -1,0 +1,4 @@
+// Public stylesheet entry for @blakedykes/core. Bundled into dist/core.css:
+// the @layer declaration + structural scaffolding + invariants floors.
+// Identity packages add the [data-identity] contract population on top.
+@forward "tokens";

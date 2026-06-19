@@ -1,0 +1,48 @@
+{
+  "accent": {
+    "$type": "color",
+    "primary": { "$value": "{nes.red}" },
+    "primary-hover": { "$value": "{nes.orange}" },
+    "primary-active": { "$value": "{nes.red-dark}" },
+    "secondary": { "$value": "{nes.blue}" }
+  },
+  "surface": {
+    "$type": "color",
+    "scene": { "$value": "{nes.black}" },
+    "panel": { "$value": "{nes.black}" },
+    "raised": { "$value": "{nes.navy}" }
+  },
+  "text": {
+    "$type": "color",
+    "primary": { "$value": "{nes.white}" },
+    "on-accent": { "$value": "{nes.white}" },
+    "display": { "$value": "{nes.yellow}" }
+  },
+  "border": {
+    "$type": "color",
+    "frame": { "$value": "{nes.white}" },
+    "focus": { "$value": "{nes.yellow}" }
+  },
+  "font": {
+    "family": {
+      "body": { "$value": "\"Press Start 2P\", \"Pixelify Sans\", monospace" },
+      "display": {
+        "$value": "\"Press Start 2P\", \"Pixelify Sans\", monospace"
+      }
+    }
+  },
+  "space": {
+    "$type": "dimension",
+    "1": { "$value": "4px" },
+    "2": { "$value": "8px" },
+    "3": { "$value": "16px" },
+    "4": { "$value": "24px" },
+    "5": { "$value": "32px" },
+    "6": { "$value": "48px" }
+  },
+  "radius": {
+    "$type": "dimension",
+    "sm": { "$value": "0px" },
+    "md": { "$value": "0px" }
+  }
+}

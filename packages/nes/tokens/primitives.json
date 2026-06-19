@@ -1,0 +1,17 @@
+{
+  "nes": {
+    "$type": "color",
+    "black": { "$value": "#000000" },
+    "white": { "$value": "#fcfcfc" },
+    "gray": { "$value": "#7c7c7c" },
+    "light-gray": { "$value": "#bcbcbc" },
+    "navy": { "$value": "#0000bc" },
+    "blue": { "$value": "#0058f8" },
+    "cyan": { "$value": "#3cbcfc" },
+    "red": { "$value": "#d82800" },
+    "red-dark": { "$value": "#a81000" },
+    "orange": { "$value": "#e45c10" },
+    "yellow": { "$value": "#f8b800" },
+    "green": { "$value": "#00a800" }
+  }
+}

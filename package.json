@@ -1,55 +1,34 @@
 {
-  "name": "@blakedykes/ui",
-  "version": "0.3.0",
-  "description": "Brand-neutral React design system: Base UI, DTCG tokens, SCSS modules.",
+  "name": "blake-dog-ds",
+  "private": true,
   "type": "module",
+  "description": "Game-UI design system organized by console generation: a headless core + per-identity packages (NES, PS2).",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/blakedykes/blake.dog.ds.git"
-  },
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./style.css": "./dist/style.css"
-  },
-  "files": [
-    "dist"
-  ],
-  "sideEffects": [
-    "**/*.css"
-  ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "scripts": {
-    "tokens:build": "node build/style-dictionary.config.mjs",
-    "typecheck": "tsc --noEmit",
-    "build": "pnpm tokens:build && tsc --noEmit && vite build",
-    "lint:style": "stylelint \"src/**/*.scss\"",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "lint:style": "pnpm -r --if-present lint:style",
+    "storybook": "pnpm --filter @blakedykes/storybook storybook",
+    "build-storybook": "pnpm --filter @blakedykes/storybook build-storybook",
     "format": "prettier --write .",
-    "storybook": "pnpm tokens:build && storybook dev -p 6006",
-    "build-storybook": "pnpm tokens:build && storybook build",
-    "dev": "pnpm tokens:build && start cmd /k \"storybook dev -p 6006\" && vite build --watch",
-    "prepare": "husky"
+    "changeset": "changeset"
   },
-  "peerDependencies": {
-    "@base-ui/react": "^1.4.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "@parcel/watcher",
+      "style-dictionary"
+    ]
   },
   "devDependencies": {
     "@base-ui/react": "^1.5.0",
+    "@changesets/cli": "^2.27.10",
     "@storybook/addon-docs": "^9.1.20",
     "@storybook/react-vite": "^9.1.20",
     "@types/node": "^22.19.21",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.2.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^17.0.7",
     "prettier": "3.8.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",

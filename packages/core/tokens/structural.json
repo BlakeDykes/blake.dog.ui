@@ -1,0 +1,24 @@
+{
+  "z": {
+    "$type": "number",
+    "hud": { "$value": 100 },
+    "overlay": { "$value": 1000 },
+    "menu": { "$value": 1100 },
+    "modal": { "$value": 1200 },
+    "toast": { "$value": 1400 },
+    "tooltip": { "$value": 1600 }
+  },
+  "focus-ring": {
+    "$type": "dimension",
+    "width": { "$value": "2px" },
+    "offset": { "$value": "2px" }
+  },
+  "motion": {
+    "duration": {
+      "$type": "duration",
+      "fast": { "$value": "120ms" },
+      "normal": { "$value": "200ms" }
+    },
+    "easing": { "$value": "cubic-bezier(0.2, 0, 0, 1)" }
+  }
+}

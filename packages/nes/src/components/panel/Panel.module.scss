@@ -1,0 +1,13 @@
+.panel {
+  padding: var(--space-3);
+  border: 3px solid var(--border-frame);
+  border-radius: var(--radius-sm);
+  background: var(--surface-panel);
+  color: var(--text-primary);
+  font-family: var(--font-family-body);
+  image-rendering: pixelated;
+
+  &[data-surface="raised"] {
+    background: var(--surface-raised);
+  }
+}

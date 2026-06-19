@@ -1,0 +1,26 @@
+{
+  "ps2": {
+    "$type": "color",
+    "metal-50": { "$value": "#E8EDF2" },
+    "metal-200": { "$value": "#AEBAC7" },
+    "metal-500": { "$value": "#5B6B7D" },
+    "metal-800": { "$value": "#212A35" },
+    "metal-950": { "$value": "#0B0F14" },
+    "base-black": { "$value": "#04060A" },
+    "base-900": { "$value": "#0A0E16" },
+    "base-800": { "$value": "#10151F" },
+    "glass": { "$value": "rgba(16, 21, 31, 0.72)" },
+    "cyan": { "$value": "#18C8F0" },
+    "cyan-bright": { "$value": "#5FE0FF" },
+    "cyan-deep": { "$value": "#0A92B8" },
+    "magenta": { "$value": "#FF2EA6" },
+    "gold": { "$value": "#F2C84B" },
+    "bevel-light": { "$value": "rgba(255, 255, 255, 0.25)" },
+    "bevel-dark": { "$value": "rgba(0, 0, 0, 0.45)" },
+    "glow": { "$type": "other", "$value": "0 0 16px" },
+    "scanline": {
+      "$type": "other",
+      "$value": "repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.18) 2px 3px)"
+    }
+  }
+}

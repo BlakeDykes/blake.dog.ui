@@ -1,0 +1,47 @@
+{
+  "_comment": "The universal contract — the stable, identity-agnostic token names every identity package MUST populate under [data-identity] and every component skin reads. NOT emitted to CSS by core (values here are placeholders); this file is the manifest the shared token build asserts identities against. Capability tokens an identity lacks (glow, scanline) are NOT here — they live as identity-specific primitives in their own packages.",
+  "accent": {
+    "$type": "color",
+    "primary": { "$value": "#000000" },
+    "primary-hover": { "$value": "#000000" },
+    "primary-active": { "$value": "#000000" },
+    "secondary": { "$value": "#000000" }
+  },
+  "surface": {
+    "$type": "color",
+    "scene": { "$value": "#000000" },
+    "panel": { "$value": "#000000" },
+    "raised": { "$value": "#000000" }
+  },
+  "text": {
+    "$type": "color",
+    "primary": { "$value": "#000000" },
+    "on-accent": { "$value": "#000000" },
+    "display": { "$value": "#000000" }
+  },
+  "border": {
+    "$type": "color",
+    "frame": { "$value": "#000000" },
+    "focus": { "$value": "#000000" }
+  },
+  "font": {
+    "family": {
+      "body": { "$value": "sans-serif" },
+      "display": { "$value": "sans-serif" }
+    }
+  },
+  "space": {
+    "$type": "dimension",
+    "1": { "$value": "4px" },
+    "2": { "$value": "8px" },
+    "3": { "$value": "12px" },
+    "4": { "$value": "16px" },
+    "5": { "$value": "24px" },
+    "6": { "$value": "32px" }
+  },
+  "radius": {
+    "$type": "dimension",
+    "sm": { "$value": "2px" },
+    "md": { "$value": "4px" }
+  }
+}

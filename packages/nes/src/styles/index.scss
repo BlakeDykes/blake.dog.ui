@@ -1,0 +1,5 @@
+// Public stylesheet entry for @blakedykes/nes. Bundled into dist/styles.css:
+// the NES palette pool + the [data-identity="nes"] contract population, plus the
+// component skin CSS. Pair with @blakedykes/core/core.css and set
+// data-identity="nes" on a root element.
+@forward "tokens";

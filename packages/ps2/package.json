@@ -1,0 +1,37 @@
+{
+  "name": "@blakedykes/ps2",
+  "version": "0.1.0",
+  "description": "PS2-era console identity: chrome/glow/scanline tokens + identity-aware component skins over @blakedykes/core.",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "tokens:build": "node build/tokens.mjs",
+    "typecheck": "tsc --noEmit",
+    "build": "pnpm tokens:build && tsc --noEmit && vite build",
+    "lint:style": "stylelint \"src/**/*.scss\" --allow-empty-input"
+  },
+  "dependencies": {
+    "@blakedykes/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "@base-ui/react": "^1.4.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "accent": {
+    "$type": "color",
+    "primary": { "$value": "{ps2.cyan}" },
+    "primary-hover": { "$value": "{ps2.cyan-bright}" },
+    "primary-active": { "$value": "{ps2.cyan-deep}" },
+    "secondary": { "$value": "{ps2.magenta}" }
+  },
+  "surface": {
+    "$type": "color",
+    "scene": { "$value": "{ps2.base-black}" },
+    "panel": { "$value": "{ps2.glass}" },
+    "raised": { "$value": "{ps2.metal-800}" }
+  },
+  "text": {
+    "$type": "color",
+    "primary": { "$value": "{ps2.metal-50}" },
+    "on-accent": { "$value": "{ps2.base-black}" },
+    "display": { "$value": "{ps2.cyan}" }
+  },
+  "border": {
+    "$type": "color",
+    "frame": { "$value": "{ps2.metal-500}" },
+    "focus": { "$value": "{ps2.cyan}" }
+  },
+  "font": {
+    "family": {
+      "body": { "$value": "Eurostile, \"Bank Gothic\", Rajdhani, sans-serif" },
+      "display": {
+        "$value": "Eurostile, \"Bank Gothic\", Rajdhani, sans-serif"
+      }
+    }
+  },
+  "space": {
+    "$type": "dimension",
+    "1": { "$value": "4px" },
+    "2": { "$value": "8px" },
+    "3": { "$value": "12px" },
+    "4": { "$value": "16px" },
+    "5": { "$value": "24px" },
+    "6": { "$value": "32px" }
+  },
+  "radius": {
+    "$type": "dimension",
+    "sm": { "$value": "2px" },
+    "md": { "$value": "6px" }
+  }
+}

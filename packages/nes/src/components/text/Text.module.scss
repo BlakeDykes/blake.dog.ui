@@ -1,0 +1,13 @@
+.text {
+  color: var(--text-primary);
+  font-family: var(--font-family-body);
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  image-rendering: pixelated;
+
+  &[data-tone="display"] {
+    color: var(--text-display);
+  }
+}

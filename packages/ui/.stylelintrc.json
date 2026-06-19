@@ -1,0 +1,30 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "ignoreFiles": [
+    "src/styles/_tokens.scss",
+    "src/styles/_tokens-map.scss",
+    "dist/**",
+    "node_modules/**",
+    "storybook-static/**"
+  ],
+  "rules": {
+    "color-no-hex": [
+      true,
+      {
+        "message": "Hard-coded hex colors are not allowed — use a semantic or component token."
+      }
+    ],
+    "unit-disallowed-list": [
+      ["px"],
+      {
+        "message": "Hard-coded px values are not allowed — use a token (rem-based scales; px lives only in tokens/*.json)."
+      }
+    ],
+    "declaration-property-value-disallowed-list": [
+      { "/.*/": ["/--[a-z][a-z0-9-]*-\\d{2,}\\b/"] },
+      {
+        "message": "Primitive tokens (numeric scale steps like --color-gray-500 or --space-100) are not allowed in component SCSS — use semantic (--color-*) or component (--button-*) tokens."
+      }
+    ]
+  }
+}

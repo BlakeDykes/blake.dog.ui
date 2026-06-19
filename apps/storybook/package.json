@@ -1,0 +1,16 @@
+{
+  "name": "@blakedykes/storybook",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build": "storybook build",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@blakedykes/core": "workspace:*",
+    "@blakedykes/nes": "workspace:*",
+    "@blakedykes/ps2": "workspace:*"
+  }
+}
