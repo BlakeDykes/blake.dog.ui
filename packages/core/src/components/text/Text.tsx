@@ -1,6 +1,6 @@
 import { useRender } from "@base-ui/react/use-render";
 
-export type TextTone = "primary" | "display";
+export type TextTone = "primary" | "display" | "accent";
 
 export interface TextState extends Record<string, unknown> {
   tone: TextTone;

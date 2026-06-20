@@ -1,6 +1,6 @@
 .text {
   color: var(--text-primary);
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-display);
   font-size: 12px;
   line-height: 1.6;
   letter-spacing: 1px;
@@ -8,6 +8,11 @@
   image-rendering: pixelated;
 
   &[data-tone="display"] {
+    color: var(--text-display);
+  }
+
+  &[data-tone="accent"] {
+    font-family: var(--font-family-accent);
     color: var(--text-display);
   }
 }

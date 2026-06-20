@@ -25,9 +25,11 @@
   },
   "font": {
     "family": {
-      "body": { "$value": "\"Press Start 2P\", \"Pixelify Sans\", monospace" },
       "display": {
         "$value": "\"Press Start 2P\", \"Pixelify Sans\", monospace"
+      },
+      "accent": {
+        "$value": "\"Jacquard 12\", \"Press Start 2P\", \"Pixelify Sans\", monospace"
       }
     }
   },

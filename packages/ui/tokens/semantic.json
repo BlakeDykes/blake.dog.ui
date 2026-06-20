@@ -27,7 +27,8 @@
   },
   "font": {
     "family": {
-      "body": { "$value": "{font.family.system}" }
+      "display": { "$value": "{font.family.system}" },
+      "accent": { "$value": "{font.family.system}" }
     },
     "size": {
       "xs": { "$value": "{font.size.100}" },

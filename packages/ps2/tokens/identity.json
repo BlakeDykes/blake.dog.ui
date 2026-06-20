@@ -25,9 +25,9 @@
   },
   "font": {
     "family": {
-      "body": { "$value": "Eurostile, \"Bank Gothic\", Rajdhani, sans-serif" },
-      "display": {
-        "$value": "Eurostile, \"Bank Gothic\", Rajdhani, sans-serif"
+      "display": { "$value": "\"Blinker\", sans-serif" },
+      "accent": {
+        "$value": "\"Blinker\", sans-serif"
       }
     }
   },

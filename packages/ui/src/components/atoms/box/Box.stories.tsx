@@ -21,7 +21,7 @@ const meta = {
           border: "var(--border-width-thin) dashed var(--color-border-strong)",
           display: "inline-block",
           color: "var(--color-fg)",
-          fontFamily: "var(--font-family-body)",
+          fontFamily: "var(--font-family-display)",
         }}
       >
         <Story />

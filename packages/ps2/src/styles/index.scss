@@ -2,4 +2,5 @@
 // the PS2 chrome/neon pool + glow/scanline recipes + the [data-identity="ps2"]
 // contract population, plus the component skin CSS. Pair with
 // @blakedykes/core/core.css; set data-identity="ps2" on a root element.
+@forward "fonts";
 @forward "tokens";
