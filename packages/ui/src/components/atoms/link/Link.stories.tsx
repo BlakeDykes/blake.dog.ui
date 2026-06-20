@@ -26,7 +26,7 @@ export const InText: Story = {
     <p
       style={{
         margin: 0,
-        fontFamily: "var(--font-family-body)",
+        fontFamily: "var(--font-family-display)",
         color: "var(--color-fg)",
       }}
     >

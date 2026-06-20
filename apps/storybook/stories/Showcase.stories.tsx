@@ -20,7 +20,7 @@ function Demo({ kit, label }: { kit: Kit; label: string }) {
   const { Panel, Text, Button } = kit;
   return (
     <kit.Panel>
-      <Text tone="display">{label}</Text>
+      <Text tone="accent">{label}</Text>
       <div style={{ marginTop: 12 }}>
         <Text>Press start to continue your adventure.</Text>
       </div>

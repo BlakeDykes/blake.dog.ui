@@ -1,7 +1,7 @@
 @use "styles/mixins" as *;
 
 .link {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-display);
   color: var(--color-accent);
   border-radius: var(--radius-sm);
   transition: color var(--motion-duration-fast) var(--motion-easing);

@@ -138,7 +138,7 @@ export function SpaceTokens() {
 
 // Font registers — render sample text in each family
 export const BRAND_FONT_FAMILIES = [
-  "--font-family-body",
+  "--font-family-display",
   "--font-family-hud-display",
   "--font-family-hud-title",
   "--font-family-dialogue",
@@ -183,7 +183,7 @@ export function TypeTokens() {
         <div key={name} style={row}>
           <span
             style={{
-              fontFamily: "var(--font-family-body)",
+              fontFamily: "var(--font-family-display)",
               fontSize: `var(${name})`,
               color: "var(--color-fg)",
             }}
