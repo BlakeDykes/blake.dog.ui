@@ -10,12 +10,14 @@
     "surface": {
       "scene": { "$value": "{ps2.base-black}" },
       "panel": { "$value": "{ps2.glass}" },
-      "raised": { "$value": "{ps2.metal-800}" }
+      "raised": { "$value": "{ps2.metal-500}" },
+      "inset": { "$value": "{ps2.metal-800}" }
     },
     "text": {
       "primary": { "$value": "{ps2.metal-50}" },
       "accent": { "$value": "{ps2.cyan}" },
-      "display": { "$value": "{ps2.base-black}" }
+      "display": { "$value": "{ps2.base-black}" },
+      "shadow": { "$value": "{ps2.base-black}" }
     },
     "border": {
       "primary": { "$value": "{ps2.metal-500}" },
@@ -27,6 +29,13 @@
       "small": { "$value": "12px" },
       "medium": { "$value": "16px" },
       "large": { "$value": "24px" }
+    },
+    "shadow": {
+      "offset": {
+        "x": { "$value": "1px" },
+        "y": { "$value": "1px" }
+      },
+      "blur": { "$value": "0px" }
     }
   },
   "border": {

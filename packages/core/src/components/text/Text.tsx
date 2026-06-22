@@ -2,12 +2,18 @@ import { useRender } from "@base-ui/react/use-render";
 
 export type TextTone = "primary" | "display" | "accent";
 
+export type TextShadow = "shadow" | "outline" | false | undefined;
+
+export type TextSize = "small" | "medium" | "large";
+
 export interface TextState extends Record<string, unknown> {
   tone: TextTone;
 }
 
 export interface TextProps extends useRender.ComponentProps<"span", TextState> {
   tone?: TextTone;
+  size?: TextSize;
+  shadow?: TextShadow;
 }
 
 /**
@@ -17,6 +23,8 @@ export interface TextProps extends useRender.ComponentProps<"span", TextState> {
  */
 export function Text({
   tone = "primary",
+  size = "small",
+  shadow = false,
   className,
   render,
   ref,
@@ -26,7 +34,7 @@ export function Text({
     render,
     ref,
     defaultTagName: "span",
-    state: { tone },
+    state: { tone, size, shadow },
     props: {
       ...props,
       className,

@@ -1,3 +1,5 @@
+@forward "../../../core/src/styles/mixins";
+
 @mixin border-with-pixel-corners(
   $p: 1.5px,
   $color: var(--border-color-primary)

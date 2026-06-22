@@ -20,9 +20,11 @@ function Demo({ kit, label }: { kit: Kit; label: string }) {
   const { Panel, Text, Button } = kit;
   return (
     <kit.Panel>
-      <Text tone="accent">{label}</Text>
+      <Text size="large" shadow="outline">
+        {label}
+      </Text>
       <div style={{ marginTop: 12 }}>
-        <Text>Press start to continue your adventure.</Text>
+        <Text shadow="outline">Press start to continue your adventure.</Text>
       </div>
       <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
         <Button>Confirm</Button>

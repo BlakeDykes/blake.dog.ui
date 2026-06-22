@@ -1,7 +1,8 @@
+@use "styles/mixins" as *;
+
 .text {
   color: var(--color-text-primary);
   font-family: var(--font-family-display);
-  font-size: var(--text-size-small);
   line-height: 1.6;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -14,6 +15,27 @@
   &[data-tone="accent"] {
     font-family: var(--font-family-accent);
     color: var(--color-text-accent);
+  }
+
+  font-size: var(--text-size-small);
+
+  &[data-size="small"] {
+    font-size: var(--text-size-small);
+  }
+
+  &[data-size="medium"] {
+    font-size: var(--text-size-medium);
+  }
+
+  &[data-size="large"] {
     font-size: var(--text-size-large);
+  }
+
+  &[data-shadow="shadow"] {
+    @include text-shadow;
+  }
+
+  &[data-shadow="outline"] {
+    @include text-outline;
   }
 }

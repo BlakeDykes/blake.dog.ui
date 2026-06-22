@@ -1,0 +1,21 @@
+@mixin text-shadow(
+  $xOffset: var(--text-shadow-offset-x),
+  $yOffset: var(--text-shadow-offset-y),
+  $blurRadius: var(--text-shadow-blur),
+  $color: var(--color-text-shadow)
+) {
+  text-shadow: #{$xOffset} #{$yOffset} #{$blurRadius} #{$color};
+}
+
+@mixin text-outline(
+  $xOffset: var(--text-shadow-offset-x),
+  $yOffset: var(--text-shadow-offset-y),
+  $blurRadius: var(--text-shadow-blur),
+  $color: var(--color-text-shadow)
+) {
+  text-shadow:
+    #{$xOffset} 0 #{$blurRadius} #{$color},
+    calc(-1 * #{$xOffset}) 0 #{$blurRadius} #{$color},
+    0 #{$yOffset} #{$blurRadius} #{$color},
+    0 calc(-1 * #{$yOffset}) #{$blurRadius} #{$color};
+}

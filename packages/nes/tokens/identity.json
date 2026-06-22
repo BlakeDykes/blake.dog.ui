@@ -9,13 +9,15 @@
     },
     "surface": {
       "scene": { "$value": "{pal.black}" },
-      "panel": { "$value": "{pal.black}" },
-      "raised": { "$value": "{pal.blue.darkest}" }
+      "panel": { "$value": "{pal.blue.dark}" },
+      "raised": { "$value": "{pal.blue.bright}" },
+      "inset": { "$value": "{pal.blue.darkest}" }
     },
     "text": {
       "primary": { "$value": "{pal.white}" },
       "display": { "$value": "{pal.white}" },
-      "accent": { "$value": "{pal.olive.bright}" }
+      "accent": { "$value": "{pal.olive.bright}" },
+      "shadow": { "$value": "{pal.black}" }
     },
     "border": {
       "primary": { "$value": "{pal.white}" },
@@ -27,6 +29,13 @@
       "small": { "$value": "12px" },
       "medium": { "$value": "16px" },
       "large": { "$value": "24px" }
+    },
+    "shadow": {
+      "offset": {
+        "x": { "$value": "2px" },
+        "y": { "$value": "2px" }
+      },
+      "blur": { "$value": "0px" }
     }
   },
   "border": {

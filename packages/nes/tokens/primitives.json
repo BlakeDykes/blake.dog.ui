@@ -3,14 +3,12 @@
     "$type": "color",
     "black": { "$value": "#000000" },
     "white": { "$value": "#ffffff" },
-
     "gray": {
       "darkest": { "$value": "#4e4e4e" },
       "dark": { "$value": "#626262" },
       "bright": { "$value": "#ababab" },
       "tint": { "$value": "#b8b8b8" }
     },
-
     "blue": {
       "darkest": { "$value": "#002263" },
       "dark": { "$value": "#1251a8" },
