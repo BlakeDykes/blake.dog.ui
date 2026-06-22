@@ -22,6 +22,7 @@
   },
   "scripts": {
     "tokens:build": "node build/tokens.mjs",
+    "dev": "vite build --watch",
     "typecheck": "tsc --noEmit",
     "build": "pnpm tokens:build && tsc --noEmit && vite build",
     "lint:style": "stylelint \"src/**/*.scss\" --allow-empty-input"

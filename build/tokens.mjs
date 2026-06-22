@@ -77,11 +77,18 @@ async function emitBlockCss(block, outDir, index) {
 
 /**
  * @param {object}   opts
- * @param {string}   opts.outFile  absolute/relative path to the _tokens.scss to write
- * @param {Array}    opts.blocks   ordered blocks: { layer, selector?, sources?, filter?, outputReferences?, raw? }
- * @param {object}  [opts.assert]  { identityKeepsRefs?: boolean, contractFrom?: string }
+ * @param {string}   opts.outFile       absolute/relative path to the _tokens.scss to write
+ * @param {Array}    opts.blocks        ordered blocks: { layer, selector?, sources?, filter?, outputReferences?, raw? }
+ * @param {object}  [opts.assert]       { identityKeepsRefs?: boolean, contractFrom?: string }
+ * @param {boolean} [opts.throwOnError] throw (vs. process.exit) when assertions fail — set in watch/dev so the
+ *                                      dev server reports the error and keeps watching instead of dying.
  */
-export async function buildLayeredTokens({ outFile, blocks, assert }) {
+export async function buildLayeredTokens({
+  outFile,
+  blocks,
+  assert,
+  throwOnError = false,
+}) {
   const outDir = path.dirname(outFile);
   await mkdir(outDir, { recursive: true });
 
@@ -100,7 +107,12 @@ export async function buildLayeredTokens({ outFile, blocks, assert }) {
     "\n@layer structural, identity, brand, invariants;\n\n" +
     rendered.map(({ block, body }) => layerBlock(block.layer, body)).join("\n");
 
-  await writeFile(outFile, out);
+  // Write only when the content actually changes. In watch mode the generated
+  // partial is itself a build input, so an unconditional rewrite would retrigger
+  // the bundler on every pass — an infinite rebuild loop.
+  const existing = await readFile(outFile, "utf8").catch(() => null);
+  const changed = existing !== out;
+  if (changed) await writeFile(outFile, out);
 
   // --- guard assertions ----------------------------------------------------
   const problems = [];
@@ -139,12 +151,14 @@ export async function buildLayeredTokens({ outFile, blocks, assert }) {
   }
 
   if (problems.length) {
-    console.error(
+    const message =
       "Token build assertions failed:\n" +
-        problems.map((p) => `  - ${p}`).join("\n")
-    );
+      problems.map((p) => `  - ${p}`).join("\n");
+    if (throwOnError) throw new Error(message);
+    console.error(message);
     process.exit(1);
   }
 
-  console.log(`Token build complete: ${outFile}`);
+  console.log(`Token build ${changed ? "complete" : "up to date"}: ${outFile}`);
+  return changed;
 }

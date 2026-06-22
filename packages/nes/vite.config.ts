@@ -3,9 +3,17 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import sassDts from "vite-plugin-sass-dts";
+import { tokensPlugin } from "../../build/vite-tokens.mjs";
+import { buildTokens, tokenSources } from "./build/tokens.mjs";
 
 export default defineConfig({
   plugins: [
+    // Regenerate _tokens.scss before SCSS compiles; under `--watch` a token edit
+    // rebuilds the stylesheet that Storybook hot-reloads.
+    tokensPlugin({
+      buildTokens: () => buildTokens({ throwOnError: true }),
+      sources: tokenSources,
+    }),
     react(),
     sassDts(),
     dts({ tsconfigPath: "./tsconfig.json", include: ["src"] }),

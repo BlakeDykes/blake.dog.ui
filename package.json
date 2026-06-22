@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "pnpm -r build",
+    "dev": "pnpm -r build && pnpm -r --parallel dev",
     "typecheck": "pnpm -r --if-present typecheck",
     "lint:style": "pnpm -r --if-present lint:style",
     "storybook": "pnpm --filter @blakedykes/storybook storybook",
