@@ -13,15 +13,28 @@
     "raised": { "$value": "{ps2.metal-800}" }
   },
   "text": {
-    "$type": "color",
-    "primary": { "$value": "{ps2.metal-50}" },
-    "on-accent": { "$value": "{ps2.base-black}" },
-    "display": { "$value": "{ps2.cyan}" }
+    "color": {
+      "primary": { "$value": "{ps2.metal-50}" },
+      "accent": { "$value": "{ps2.cyan}" },
+      "display": { "$value": "{ps2.base-black}" }
+    },
+    "size": {
+      "small": { "$value": "12px" },
+      "medium": { "$value": "16px" },
+      "large": { "$value": "24px" }
+    }
   },
   "border": {
-    "$type": "color",
-    "frame": { "$value": "{ps2.metal-500}" },
-    "focus": { "$value": "{ps2.cyan}" }
+    "color": {
+      "primary": { "$value": "{ps2.metal-500}" },
+      "focus": { "$value": "{ps2.cyan}" }
+    },
+    "width": {
+      "top": { "$value": "1px" },
+      "right": { "$value": "1px" },
+      "bottom": { "$value": "1px" },
+      "left": { "$value": "1px" }
+    }
   },
   "font": {
     "family": {

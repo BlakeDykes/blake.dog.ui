@@ -1,3 +1,5 @@
+@use "styles/mixins" as *;
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -7,9 +9,9 @@
   border: 3px solid var(--border-frame);
   border-radius: var(--radius-md);
   background: var(--surface-panel);
-  color: var(--text-primary);
+  color: var(--text-color-primary);
   font-family: var(--font-family-display);
-  font-size: 12px;
+  font-size: var(--text-size-small);
   line-height: 1;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -18,7 +20,9 @@
 
   &[data-variant="solid"] {
     background: var(--accent-primary);
-    color: var(--text-on-accent);
+    color: var(--text-color-primary);
+
+    @include border-with-pixel-corners;
 
     &:hover:not(:disabled) {
       background: var(--accent-primary-hover);

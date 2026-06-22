@@ -1,11 +1,13 @@
+@use "styles/mixins" as *;
+
 .panel {
   padding: var(--space-3);
-  border: 3px solid var(--border-frame);
-  border-radius: var(--radius-sm);
   background: var(--surface-panel);
-  color: var(--text-primary);
+  color: var(--text-color-primary);
   font-family: var(--font-family-display);
   image-rendering: pixelated;
+
+  @include border-with-pixel-corners;
 
   &[data-surface="raised"] {
     background: var(--surface-raised);

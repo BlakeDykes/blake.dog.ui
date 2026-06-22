@@ -1,0 +1,31 @@
+@mixin border-with-pixel-corners(
+  $p: 1.5px,
+  $color: var(--border-color-primary)
+) {
+  border-width: var(--border-width-top) var(--border-width-right)
+    var(--border-width-bottom) var(--border-width-left);
+  border-style: solid;
+  border-color: #{$color};
+  clip-path: polygon(
+    #{$p * 2} 0,
+    calc(100% - #{$p * 2}) 0,
+    calc(100% - #{$p * 2}) #{$p},
+    calc(100% - #{$p}) #{$p},
+    calc(100% - #{$p}) #{$p * 2},
+    100% #{$p * 2},
+    100% calc(100% - #{$p * 2}),
+    calc(100% - #{$p}) calc(100% - #{$p * 2}),
+    calc(100% - #{$p}) calc(100% - #{$p}),
+    calc(100% - #{$p * 2}) calc(100% - #{$p}),
+    calc(100% - #{$p * 2}) 100%,
+    #{$p * 2} 100%,
+    #{$p * 2} calc(100% - #{$p}),
+    #{$p} calc(100% - #{$p}),
+    #{$p} calc(100% - #{$p * 2}),
+    0 calc(100% - #{$p * 2}),
+    0 #{$p * 2},
+    #{$p} #{$p * 2},
+    #{$p} #{$p},
+    #{$p * 2} #{$p}
+  );
+}

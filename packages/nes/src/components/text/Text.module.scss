@@ -1,18 +1,19 @@
 .text {
-  color: var(--text-primary);
+  color: var(--text-color-primary);
   font-family: var(--font-family-display);
-  font-size: 12px;
+  font-size: var(--text-size-small);
   line-height: 1.6;
   letter-spacing: 1px;
   text-transform: uppercase;
   image-rendering: pixelated;
 
   &[data-tone="display"] {
-    color: var(--text-display);
+    color: var(--text-color-display);
   }
 
   &[data-tone="accent"] {
     font-family: var(--font-family-accent);
-    color: var(--text-display);
+    color: var(--text-color-accent);
+    font-size: var(--text-size-large);
   }
 }

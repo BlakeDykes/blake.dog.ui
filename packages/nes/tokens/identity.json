@@ -1,27 +1,40 @@
 {
   "accent": {
     "$type": "color",
-    "primary": { "$value": "{nes.red}" },
-    "primary-hover": { "$value": "{nes.orange}" },
-    "primary-active": { "$value": "{nes.red-dark}" },
-    "secondary": { "$value": "{nes.blue}" }
+    "primary": { "$value": "{pal.red.bright}" },
+    "primary-hover": { "$value": "{pal.orange.bright}" },
+    "primary-active": { "$value": "{pal.red.dark}" },
+    "secondary": { "$value": "{pal.blue.bright}" }
   },
   "surface": {
     "$type": "color",
-    "scene": { "$value": "{nes.black}" },
-    "panel": { "$value": "{nes.black}" },
-    "raised": { "$value": "{nes.navy}" }
+    "scene": { "$value": "{pal.black}" },
+    "panel": { "$value": "{pal.black}" },
+    "raised": { "$value": "{pal.blue.darkest}" }
   },
   "text": {
-    "$type": "color",
-    "primary": { "$value": "{nes.white}" },
-    "on-accent": { "$value": "{nes.white}" },
-    "display": { "$value": "{nes.yellow}" }
+    "color": {
+      "primary": { "$value": "{pal.white}" },
+      "display": { "$value": "{pal.white}" },
+      "accent": { "$value": "{pal.olive.bright}" }
+    },
+    "size": {
+      "small": { "$value": "12px" },
+      "medium": { "$value": "16px" },
+      "large": { "$value": "24px" }
+    }
   },
   "border": {
-    "$type": "color",
-    "frame": { "$value": "{nes.white}" },
-    "focus": { "$value": "{nes.yellow}" }
+    "color": {
+      "primary": { "$value": "{pal.white}" },
+      "focus": { "$value": "{pal.olive.bright}" }
+    },
+    "width": {
+      "top": { "$value": "3px" },
+      "right": { "$value": "3px" },
+      "bottom": { "$value": "3px" },
+      "left": { "$value": "3px" }
+    }
   },
   "font": {
     "family": {

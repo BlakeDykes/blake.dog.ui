@@ -1,6 +1,6 @@
 /**
  * @blakedykes/nes token build — emits src/styles/_tokens.scss:
- *   @layer structural   the NES hardware palette pool (--nes-*)
+ *   @layer structural   the PAL (2C07) hardware palette pool (--pal-*)
  *   @layer identity     [data-identity="nes"] populates the core contract
  *
  * The identity block references the palette via var() (outputReferences) and is

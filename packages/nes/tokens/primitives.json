@@ -1,17 +1,87 @@
 {
-  "nes": {
+  "pal": {
     "$type": "color",
     "black": { "$value": "#000000" },
-    "white": { "$value": "#fcfcfc" },
-    "gray": { "$value": "#7c7c7c" },
-    "light-gray": { "$value": "#bcbcbc" },
-    "navy": { "$value": "#0000bc" },
-    "blue": { "$value": "#0058f8" },
-    "cyan": { "$value": "#3cbcfc" },
-    "red": { "$value": "#d82800" },
-    "red-dark": { "$value": "#a81000" },
-    "orange": { "$value": "#e45c10" },
-    "yellow": { "$value": "#f8b800" },
-    "green": { "$value": "#00a800" }
+    "white": { "$value": "#ffffff" },
+
+    "gray": {
+      "darkest": { "$value": "#4e4e4e" },
+      "dark": { "$value": "#626262" },
+      "bright": { "$value": "#ababab" },
+      "tint": { "$value": "#b8b8b8" }
+    },
+
+    "blue": {
+      "darkest": { "$value": "#002263" },
+      "dark": { "$value": "#1251a8" },
+      "bright": { "$value": "#62a1fa" },
+      "tint": { "$value": "#c4ddff" }
+    },
+    "indigo": {
+      "darkest": { "$value": "#0d107d" },
+      "dark": { "$value": "#3438cb" },
+      "bright": { "$value": "#8589ff" },
+      "tint": { "$value": "#d1d3ff" }
+    },
+    "violet": {
+      "darkest": { "$value": "#2b027d" },
+      "dark": { "$value": "#5c24cb" },
+      "bright": { "$value": "#ac75ff" },
+      "tint": { "$value": "#e1cbff" }
+    },
+    "purple": {
+      "darkest": { "$value": "#440063" },
+      "dark": { "$value": "#7e19a8" },
+      "bright": { "$value": "#cf6afa" },
+      "tint": { "$value": "#efc7ff" }
+    },
+    "crimson": {
+      "darkest": { "$value": "#530036" },
+      "dark": { "$value": "#921b6b" },
+      "bright": { "$value": "#e36cbc" },
+      "tint": { "$value": "#f6c8e7" }
+    },
+    "red": {
+      "darkest": { "$value": "#530502" },
+      "dark": { "$value": "#922924" },
+      "bright": { "$value": "#e37975" },
+      "tint": { "$value": "#f6cdcb" }
+    },
+    "orange": {
+      "darkest": { "$value": "#441500" },
+      "dark": { "$value": "#7e3f00" },
+      "bright": { "$value": "#cf9037" },
+      "tint": { "$value": "#efd6b3" }
+    },
+    "olive": {
+      "darkest": { "$value": "#2b2700" },
+      "dark": { "$value": "#5c5700" },
+      "bright": { "$value": "#aca814" },
+      "tint": { "$value": "#e1dfa6" }
+    },
+    "chartreuse": {
+      "darkest": { "$value": "#0d3600" },
+      "dark": { "$value": "#346b00" },
+      "bright": { "$value": "#85bc14" },
+      "tint": { "$value": "#d1e7a6" }
+    },
+    "green": {
+      "darkest": { "$value": "#003e00" },
+      "dark": { "$value": "#127600" },
+      "bright": { "$value": "#62c737" },
+      "tint": { "$value": "#c4ebb3" }
+    },
+    "emerald": {
+      "darkest": { "$value": "#003d02" },
+      "dark": { "$value": "#007424" },
+      "bright": { "$value": "#4ec575" },
+      "tint": { "$value": "#bcebcb" }
+    },
+    "teal": {
+      "darkest": { "$value": "#003336" },
+      "dark": { "$value": "#00676b" },
+      "bright": { "$value": "#4eb7bc" },
+      "tint": { "$value": "#bce5e7" }
+    }
   }
 }

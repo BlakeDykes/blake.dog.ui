@@ -1,12 +1,12 @@
 .text {
-  color: var(--text-primary);
+  color: var(--text-color-primary);
   font-family: var(--font-family-display);
   letter-spacing: 0.04em;
   line-height: 1.5;
   text-shadow: 0 1px 2px rgb(0 0 0 / 80%);
 
   &[data-tone="display"] {
-    color: var(--text-display);
+    color: var(--text-color-display);
     font-family: var(--font-family-display);
     text-transform: uppercase;
     letter-spacing: 0.12em;
@@ -16,6 +16,6 @@
 
   &[data-tone="accent"] {
     font-family: var(--font-family-accent);
-    color: var(--text-display);
+    color: var(--text-color-accent);
   }
 }

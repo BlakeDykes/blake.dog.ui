@@ -14,15 +14,32 @@
     "raised": { "$value": "#000000" }
   },
   "text": {
-    "$type": "color",
-    "primary": { "$value": "#000000" },
-    "on-accent": { "$value": "#000000" },
-    "display": { "$value": "#000000" }
+    "color": {
+      "$type": "color",
+      "primary": { "$value": "#000000" },
+      "accent": { "$value": "#000000" },
+      "display": { "$value": "#000000" }
+    },
+    "size": {
+      "$type": "dimension",
+      "small": { "$value": "12px" },
+      "medium": { "$value": "16px" },
+      "large": { "$value": "24px" }
+    }
   },
   "border": {
-    "$type": "color",
-    "frame": { "$value": "#000000" },
-    "focus": { "$value": "#000000" }
+    "color": {
+      "$type": "color",
+      "primary": { "$value": "#000000" },
+      "focus": { "$value": "#000000" }
+    },
+    "width": {
+      "$type": "dimension",
+      "top": { "$value": "0px" },
+      "right": { "$value": "0px" },
+      "bottom": { "$value": "0px" },
+      "left": { "$value": "0px" }
+    }
   },
   "font": {
     "family": {
