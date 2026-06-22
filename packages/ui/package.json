@@ -32,7 +32,7 @@
     "format": "prettier --write .",
     "storybook": "pnpm tokens:build && storybook dev -p 6006",
     "build-storybook": "pnpm tokens:build && storybook build",
-    "dev": "pnpm tokens:build && start cmd /k \"storybook dev -p 6006\" && vite build --watch",
+    "dev": "vite build --watch",
     "prepare": "husky"
   },
   "peerDependencies": {
