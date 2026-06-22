@@ -1,23 +1,28 @@
 {
-  "accent": {
+  "color": {
     "$type": "color",
-    "primary": { "$value": "{pal.red.bright}" },
-    "primary-hover": { "$value": "{pal.orange.bright}" },
-    "primary-active": { "$value": "{pal.red.dark}" },
-    "secondary": { "$value": "{pal.blue.bright}" }
-  },
-  "surface": {
-    "$type": "color",
-    "scene": { "$value": "{pal.black}" },
-    "panel": { "$value": "{pal.black}" },
-    "raised": { "$value": "{pal.blue.darkest}" }
-  },
-  "text": {
-    "color": {
+    "accent": {
+      "primary": { "$value": "{pal.red.bright}" },
+      "primary-hover": { "$value": "{pal.orange.bright}" },
+      "primary-active": { "$value": "{pal.red.dark}" },
+      "secondary": { "$value": "{pal.blue.bright}" }
+    },
+    "surface": {
+      "scene": { "$value": "{pal.black}" },
+      "panel": { "$value": "{pal.black}" },
+      "raised": { "$value": "{pal.blue.darkest}" }
+    },
+    "text": {
       "primary": { "$value": "{pal.white}" },
       "display": { "$value": "{pal.white}" },
       "accent": { "$value": "{pal.olive.bright}" }
     },
+    "border": {
+      "primary": { "$value": "{pal.white}" },
+      "focus": { "$value": "{pal.olive.bright}" }
+    }
+  },
+  "text": {
     "size": {
       "small": { "$value": "12px" },
       "medium": { "$value": "16px" },
@@ -25,10 +30,6 @@
     }
   },
   "border": {
-    "color": {
-      "primary": { "$value": "{pal.white}" },
-      "focus": { "$value": "{pal.olive.bright}" }
-    },
     "width": {
       "top": { "$value": "3px" },
       "right": { "$value": "3px" },

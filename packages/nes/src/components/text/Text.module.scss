@@ -1,5 +1,5 @@
 .text {
-  color: var(--text-color-primary);
+  color: var(--color-text-primary);
   font-family: var(--font-family-display);
   font-size: var(--text-size-small);
   line-height: 1.6;
@@ -8,12 +8,12 @@
   image-rendering: pixelated;
 
   &[data-tone="display"] {
-    color: var(--text-color-display);
+    color: var(--color-text-display);
   }
 
   &[data-tone="accent"] {
     font-family: var(--font-family-accent);
-    color: var(--text-color-accent);
+    color: var(--color-text-accent);
     font-size: var(--text-size-large);
   }
 }

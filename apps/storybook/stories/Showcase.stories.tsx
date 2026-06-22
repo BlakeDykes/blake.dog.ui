@@ -45,7 +45,7 @@ export const SideBySide: StoryObj = {
         style={{
           flex: "1 1 320px",
           padding: 32,
-          background: "var(--surface-scene)",
+          background: "var(--color-surface-scene)",
         }}
       >
         <Demo kit={Nes} label="NES IDENTITY" />
@@ -55,7 +55,7 @@ export const SideBySide: StoryObj = {
         style={{
           flex: "1 1 320px",
           padding: 32,
-          background: "var(--surface-scene)",
+          background: "var(--color-surface-scene)",
         }}
       >
         <Demo kit={Ps2} label="PS2 Identity" />

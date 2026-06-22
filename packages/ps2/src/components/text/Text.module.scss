@@ -1,21 +1,21 @@
 .text {
-  color: var(--text-color-primary);
+  color: var(--color-text-primary);
   font-family: var(--font-family-display);
   letter-spacing: 0.04em;
   line-height: 1.5;
   text-shadow: 0 1px 2px rgb(0 0 0 / 80%);
 
   &[data-tone="display"] {
-    color: var(--text-color-display);
+    color: var(--color-text-display);
     font-family: var(--font-family-display);
     text-transform: uppercase;
     letter-spacing: 0.12em;
     text-shadow: 0 0 8px
-      color-mix(in srgb, var(--text-display) 50%, transparent);
+      color-mix(in srgb, var(--color-text-display) 50%, transparent);
   }
 
   &[data-tone="accent"] {
     font-family: var(--font-family-accent);
-    color: var(--text-color-accent);
+    color: var(--color-text-accent);
   }
 }

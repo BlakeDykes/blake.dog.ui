@@ -1,6 +1,6 @@
 import { useRender } from "@base-ui/react/use-render";
 
-export type PanelSurface = "panel" | "raised";
+export type PanelSurface = "panel" | "raised" | "inset";
 
 export interface PanelState extends Record<string, unknown> {
   surface: PanelSurface;

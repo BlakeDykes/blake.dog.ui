@@ -2,14 +2,14 @@
 
 .panel {
   padding: var(--space-3);
-  background: var(--surface-panel);
-  color: var(--text-color-primary);
+  background: var(--color-surface-panel);
+  color: var(--color-text-primary);
   font-family: var(--font-family-display);
   image-rendering: pixelated;
 
   @include border-with-pixel-corners;
 
   &[data-surface="raised"] {
-    background: var(--surface-raised);
+    background: var(--color-surface-raised);
   }
 }

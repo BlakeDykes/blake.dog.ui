@@ -8,8 +8,8 @@
   padding: var(--space-2) var(--space-3);
   border: 3px solid var(--border-frame);
   border-radius: var(--radius-md);
-  background: var(--surface-panel);
-  color: var(--text-color-primary);
+  background: var(--color-surface-panel);
+  color: var(--color-text-primary);
   font-family: var(--font-family-display);
   font-size: var(--text-size-small);
   line-height: 1;
@@ -19,17 +19,16 @@
   cursor: pointer;
 
   &[data-variant="solid"] {
-    background: var(--accent-primary);
-    color: var(--text-color-primary);
+    background: var(--color-accent-primary);
 
     @include border-with-pixel-corners;
 
     &:hover:not(:disabled) {
-      background: var(--accent-primary-hover);
+      background: var(--color-accent-primary-hover);
     }
 
     &:active:not(:disabled) {
-      background: var(--accent-primary-active);
+      background: var(--color-accent-primary-active);
     }
   }
 
