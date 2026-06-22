@@ -10,6 +10,8 @@ export { Text } from "@/components/text";
 export type {
   ButtonProps,
   ButtonSize,
+  ButtonSlotProps,
+  ButtonSlots,
   ButtonVariant,
   PanelProps,
   PanelSurface,

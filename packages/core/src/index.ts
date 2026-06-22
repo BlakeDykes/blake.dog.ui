@@ -6,9 +6,16 @@ import "@/styles/index.scss";
 
 export { cx } from "@/utils/cx";
 export {
+  resolveSlot,
+  type SlotComponents,
+  type SlotProps,
+} from "@/utils/slots";
+export {
   Button,
   type ButtonProps,
   type ButtonSize,
+  type ButtonSlotProps,
+  type ButtonSlots,
   type ButtonState,
   type ButtonVariant,
 } from "@/components/button";
